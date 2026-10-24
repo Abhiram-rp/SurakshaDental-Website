@@ -716,8 +716,7 @@ footer.site .container{position:relative;z-index:2}
       </div>
       <div class="foot-bot"><span>&copy; ${new Date().getFullYear()} ${esc(C.clinic.name)}.</span><span>${esc(C.clinic.addressCity)}</span></div>
     </div>
-  </footer>
-  <a class="fab" ${ext(C.links.whatsappCommunity)} aria-label="Join our WhatsApp community">${I.wa}</a>`;
+  </footer>`;
 
   document.getElementById('app').innerHTML = header + `<main id="main">` + hero + about + services + team + why + reviews + gallery + community + contact + `</main>` + footer;
 
