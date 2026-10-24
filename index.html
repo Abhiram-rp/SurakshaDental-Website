@@ -308,12 +308,13 @@ header.site.scrolled{box-shadow:0 2px 18px rgba(30,50,88,.08);border-color:var(-
 /* services */
 .services{background:linear-gradient(180deg,#E9F1FA 0%,#EDF5F4 100%)}
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.svc{--c:var(--blue);display:grid;grid-template-columns:48px 1fr;gap:6px 18px;padding:26px 26px 24px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--c);border-radius:var(--radius);transition:transform .35s,box-shadow .35s}
-.svc:nth-child(4n+2){--c:var(--teal)}.svc:nth-child(4n+3){--c:var(--gold)}.svc:nth-child(4n+4){--c:var(--sage)}
-.svc:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(30,50,88,.10)}
-.svc .n{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:color-mix(in srgb,var(--c) 14%,#fff);color:var(--c);font-family:var(--serif);font-weight:600;font-size:1rem}
-.svc h3{font-size:1.3rem;margin-bottom:.25em}
-.svc p{margin:0;color:var(--muted);font-size:.98rem}
+    .svc{--c:var(--blue);display:grid;grid-template-columns:48px 1fr;gap:6px 18px;padding:26px 26px 24px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--c);border-radius:var(--radius);transition:transform .35s,box-shadow .35s;text-decoration:none;color:inherit}
+    .svc:nth-child(4n+2){--c:var(--teal)}.svc:nth-child(4n+3){--c:var(--gold)}.svc:nth-child(4n+4){--c:var(--sage)}
+    .svc:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(30,50,88,.10)}
+    .svc .n{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:color-mix(in srgb,var(--c) 14%,#fff);color:var(--c);font-family:var(--serif);font-weight:600;font-size:1rem}
+    .svc h3{font-size:1.3rem;margin-bottom:.25em}
+    .svc p{margin:0;color:var(--muted);font-size:.98rem}
+    a.svc{cursor:pointer}
 
 /* team */
 .team{background:linear-gradient(180deg,#F6F9FC 0%,#F3F8F8 100%)}
@@ -576,16 +577,30 @@ footer.site .container{position:relative;z-index:2}
   </section>`;
 
   /* ---------- services ---------- */
+  const svcLinks = {
+    "Orthodontics": "service-orthodontics.html",
+    "Endodontics": "service-endodontics.html",
+    "Prosthodontics": "service-prosthodontics.html",
+    "Periodontics": "service-periodontics.html",
+    "Oral Medicine and Radiology": "service-oral-medicine-radiology.html",
+    "Implants and Cosmetic Dentistry": "service-implants-cosmetic-dentistry.html",
+    "Oral and Maxillofacial Surgery": "service-oral-maxillofacial-surgery.html",
+    "Pediatric Dentistry": "service-pediatric-dentistry.html"
+  };
   const services = `
   <section class="services" id="services">
     <div class="container">
       <div class="sec-head reveal"><span class="eyebrow">Specialties</span><h2>${esc(C.services.title)}</h2><p>${esc(C.services.intro)}</p></div>
       <div class="svc-grid">
-        ${C.services.items.map((s,i)=>`
-        <div class="svc reveal" style="--i:${i%2}">
+        ${C.services.items.map((s,i)=>{
+          const href = svcLinks[s.name] ? ` href="${svcLinks[s.name]}"` : '';
+          const tag = href ? 'a' : 'div';
+          return `
+        <${tag} class="svc reveal" style="--i:${i%2}"${href}>
           <span class="n">${pad(i)}</span>
           <div><h3>${esc(s.name)}</h3><p>${esc(s.text)}</p></div>
-        </div>`).join('')}
+        </${tag}>`;
+        }).join('')}
       </div>
     </div>
   </section>`;
