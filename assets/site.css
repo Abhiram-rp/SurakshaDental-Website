@@ -102,6 +102,16 @@ footer.site .container{position:relative;z-index:2}
    SERVICE PAGE
    ===================================================================== */
 
+/* service cards (used on index.html and shared) */
+.svc{--c:var(--blue);display:grid;grid-template-columns:48px 1fr;gap:6px 18px;padding:26px 26px 24px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--c);border-radius:var(--radius);transition:transform .35s,box-shadow .35s,scale .35s;text-decoration:none;color:inherit;will-change:transform}
+.svc:nth-child(4n+2){--c:var(--teal)}.svc:nth-child(4n+3){--c:var(--gold)}.svc:nth-child(4n+4){--c:var(--sage)}
+.svc:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 38px rgba(30,50,88,.14)}
+.svc:focus-visible{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 38px rgba(30,50,88,.14);outline:2px solid var(--blue);outline-offset:3px}
+.svc .n{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:color-mix(in srgb,var(--c) 14%,#fff);color:var(--c);font-family:var(--serif);font-weight:600;font-size:1rem}
+.svc h3{font-size:1.3rem;margin-bottom:.25em}
+.svc p{margin:0;color:var(--muted);font-size:.98rem}
+a.svc{cursor:pointer}
+
 /* breadcrumbs */
 .crumbs{padding:24px 0 0;font-size:.9rem;color:var(--muted)}
 .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0;padding:0}

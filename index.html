@@ -308,9 +308,10 @@ header.site.scrolled{box-shadow:0 2px 18px rgba(30,50,88,.08);border-color:var(-
 /* services */
 .services{background:linear-gradient(180deg,#E9F1FA 0%,#EDF5F4 100%)}
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .svc{--c:var(--blue);display:grid;grid-template-columns:48px 1fr;gap:6px 18px;padding:26px 26px 24px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--c);border-radius:var(--radius);transition:transform .35s,box-shadow .35s;text-decoration:none;color:inherit}
+    .svc{--c:var(--blue);display:grid;grid-template-columns:48px 1fr;gap:6px 18px;padding:26px 26px 24px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--c);border-radius:var(--radius);transition:transform .35s,box-shadow .35s,scale .35s;text-decoration:none;color:inherit;will-change:transform}
     .svc:nth-child(4n+2){--c:var(--teal)}.svc:nth-child(4n+3){--c:var(--gold)}.svc:nth-child(4n+4){--c:var(--sage)}
-    .svc:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(30,50,88,.10)}
+    .svc:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 38px rgba(30,50,88,.14)}
+    .svc:focus-visible{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 38px rgba(30,50,88,.14);outline:2px solid var(--blue);outline-offset:3px}
     .svc .n{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:color-mix(in srgb,var(--c) 14%,#fff);color:var(--c);font-family:var(--serif);font-weight:600;font-size:1rem}
     .svc h3{font-size:1.3rem;margin-bottom:.25em}
     .svc p{margin:0;color:var(--muted);font-size:.98rem}
@@ -367,6 +368,19 @@ header.site.scrolled{box-shadow:0 2px 18px rgba(30,50,88,.08);border-color:var(-
 .rev .who b{display:block;font-weight:500;font-size:1rem}
 .rev .who span{color:var(--muted)}
 .center-btn{text-align:center}
+
+/* faq */
+.faq{background:linear-gradient(180deg,#F6F9FC 0%,#F3F8F8 100%)}
+.faq-list{max-width:840px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:20px 24px;font-family:var(--serif);font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-family:var(--body);font-size:1.5rem;line-height:1;color:var(--blue);flex:none}
+.faq-item[open] summary::after{content:"\2013"}
+.faq-item[open] summary{border-bottom:1px solid var(--line)}
+.faq-a{padding:18px 24px 22px;color:var(--muted);font-size:.98rem}
+.faq-a p:last-child{margin:0}
+.faq-note{max-width:840px;margin:26px auto 0;font-size:.9rem;color:var(--muted);border-left:3px solid var(--line);padding-left:14px}
 
 /* gallery */
 .gallery{background:linear-gradient(180deg,#EAF1FA 0%,#F1EFF9 100%)}
@@ -459,6 +473,8 @@ footer.site .container{position:relative;z-index:2}
   .hero .actions .btn{width:100%;justify-content:center}
   .map{height:320px}
   .brand{font-size:1.45rem}
+  .faq-item summary{font-size:1rem;padding:16px 18px}
+  .faq-a{padding:14px 18px 18px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -531,6 +547,7 @@ footer.site .container{position:relative;z-index:2}
         <a href="#services">Services</a>
         <a href="#team">Our Team</a>
         <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQs</a>
         <a href="#contact">Contact Us</a>
         <a class="btn btn-primary btn-small" href="${tel}">${I.phone}Call now</a>
       </nav>
@@ -696,6 +713,41 @@ footer.site .container{position:relative;z-index:2}
     </div>
   </section>`;
 
+  /* ---------- faq ---------- */
+  const faq = `
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="sec-head center reveal"><span class="eyebrow">FAQs</span><h2>Frequently Asked Questions</h2><p>Answers to common questions about our clinic and dental care.</p></div>
+      <div class="faq-list">
+        <details class="faq-item reveal" style="--i:0">
+          <summary>Where is Suraksha Dental Clinic located?</summary>
+          <div class="faq-a"><p>We are located at # G-1, 2, Krishna Complex, Shivanandanagar, Nagarbhavi Road, Moodalapalya, Bengaluru – 560 072.</p></div>
+        </details>
+        <details class="faq-item reveal" style="--i:1">
+          <summary>What are the clinic timings?</summary>
+          <div class="faq-a"><p>Monday – Saturday: 10:30 am – 1:30 pm and 5:00 pm – 7:00 pm. Sunday: Closed.</p></div>
+        </details>
+        <details class="faq-item reveal" style="--i:2">
+          <summary>How can I book an appointment?</summary>
+          <div class="faq-a"><p>You can call us at +91 97411 04144 to book an appointment. Walk-ins may be accommodated based on availability.</p></div>
+        </details>
+        <details class="faq-item reveal" style="--i:0">
+          <summary>Do you offer treatment for children?</summary>
+          <div class="faq-a"><p>Yes. We provide gentle pediatric dental care for infants, children and teenagers, with a focus on prevention and building positive dental visits.</p></div>
+        </details>
+        <details class="faq-item reveal" style="--i:1">
+          <summary>Do I need a referral to see a specialist?</summary>
+          <div class="faq-a"><p>No referral is needed. We have specialists across multiple disciplines working together under one roof, so we can coordinate care as needed.</p></div>
+        </details>
+        <details class="faq-item reveal" style="--i:2">
+          <summary>Do you accept emergency dental cases?</summary>
+          <div class="faq-a"><p>Please call us at +91 97411 04144 for urgent dental concerns. We will advise you on the next steps based on your symptoms.</p></div>
+        </details>
+      </div>
+      <p class="faq-note">This information is general and does not replace a clinical examination. Please book a consultation for advice about your own situation.</p>
+    </div>
+  </section>`;
+
   /* ---------- contact ---------- */
   const contact = `
   <section id="contact">
@@ -723,7 +775,7 @@ footer.site .container{position:relative;z-index:2}
         <div><h4>Get in touch</h4><p><a href="${tel}">Ph. ${esc(C.clinic.phoneDisplay)}</a></p><p>${addr}</p></div>
         <div><h4>Menu</h4><ul>
           <li><a href="#about">About</a></li><li><a href="#team">Our Team</a></li>
-          <li><a href="#services">Services</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+          <li><a href="#services">Services</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQs</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
         <div><h4>Follow us</h4><ul>
           <li><a class="ig" ${ext(C.links.instagram)}>${I.ig}Instagram</a></li>
           <li><a ${ext(C.links.whatsappCommunity)}>WhatsApp community</a></li></ul></div>
@@ -733,7 +785,7 @@ footer.site .container{position:relative;z-index:2}
     </div>
   </footer>`;
 
-  document.getElementById('app').innerHTML = header + `<main id="main">` + hero + about + services + team + why + reviews + gallery + community + contact + `</main>` + footer;
+  document.getElementById('app').innerHTML = header + `<main id="main">` + hero + about + services + team + why + reviews + gallery + community + faq + contact + `</main>` + footer;
 
   /* ---------- structured data for search engines ---------- */
   try{
@@ -747,6 +799,20 @@ footer.site .container{position:relative;z-index:2}
     if(C.links.instagram) ld.sameAs=[C.links.instagram];
     if(rn>0 && rc>0) ld.aggregateRating={"@type":"AggregateRating","ratingValue":rn,"reviewCount":rc};
     const s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(ld); document.head.appendChild(s);
+
+    const faqItems = document.querySelectorAll('#faq .faq-item');
+    if(faqItems.length){
+      const qa=[];
+      faqItems.forEach(item=>{
+        const q=item.querySelector('summary');
+        const a=item.querySelector('.faq-a');
+        if(!q||!a) return;
+        qa.push({"@type":"Question","name":q.textContent.trim(),"acceptedAnswer":{"@type":"Answer","text":a.textContent.replace(/\s+/g,' ').trim()}});
+      });
+      if(qa.length){
+        const fs=document.createElement('script'); fs.type='application/ld+json'; fs.textContent=JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":qa}); document.head.appendChild(fs);
+      }
+    }
   }catch(e){}
 
   /* ---------- interactions ---------- */
