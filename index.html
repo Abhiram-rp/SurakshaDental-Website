@@ -123,15 +123,35 @@ const SITE_CONFIG = {
   },
 
   why: {
-    title: "Why Patients Choose Us",
+    title: "Our Approach to Dental Care",
+    
     items: [
-      { title: "[Specialists under one roof]", text: "[Dedicated specialists across orthodontics, endodontics, implants, surgery and more, with no need to travel between clinics.]" },
-      { title: "[Clear treatment plans]",      text: "[You are told what is needed, the options available and the cost before any treatment begins.]" },
-      { title: "[Comfort-first care]",         text: "[Gentle techniques and unhurried appointments, including for children and anxious patients.]" },
-      { title: "[Strict sterilization]",       text: "[Describe your sterilization and infection-control protocols here.]" },
-      { title: "[Modern diagnostics]",         text: "[Mention digital X-rays, imaging or other technology you use.]" },
-      { title: "[Follow-up care]",             text: "[Describe how you follow up with patients after treatment.]" }
+    {
+        title: "Comprehensive Dental Care",
+        text: "Coordinated dental care across multiple specialties, based on individual clinical needs and treatment requirements."
+    },
+    {
+        title: "Individualised Treatment Planning",
+        text: "Treatment plans developed through clinical examination, diagnostic findings and consideration of individual patient needs."
+    },
+    {
+        title: "Patient-Centred Approach",
+        text: "Care provided with attention to patient concerns, informed consent and clear communication throughout treatment."
+    },
+    {
+        title: "Infection Control",
+        text: "Established sterilisation and clinical hygiene protocols maintained in accordance with applicable infection control standards."
+    },
+    {
+        title: "Diagnostic Assessment",
+        text: "Clinical assessments supported by appropriate diagnostic investigations to guide treatment decisions and ongoing care."
+    },
+    {
+        title: "Continuity of Care",
+        text: "Post-treatment guidance and follow-up assessments provided according to individual clinical needs and recovery requirements."
+    }
     ]
+
   },
 
   reviews: {
@@ -397,9 +417,9 @@ footer.site .container{position:relative;z-index:2}
 .foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.92rem;color:var(--muted)}
 
 /* floating whatsapp */
-.fab{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(20,22,31,.25);z-index:40;transition:transform .3s,box-shadow .3s}
+/* .fab{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(20,22,31,.25);z-index:40;transition:transform .3s,box-shadow .3s}
 .fab:hover{transform:translateY(-3px) scale(1.04)}
-.fab svg{width:28px;height:28px;fill:currentColor}
+.fab svg{width:28px;height:28px;fill:currentColor} */
 
 /* scroll reveal */
 .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*90ms)}
