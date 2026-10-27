@@ -106,10 +106,9 @@
           '<div><h4>Get in touch</h4><p><a href="' + tel + '">Ph. ' + esc(CLINIC.phoneDisplay) + '</a></p><p>' + addr + '</p></div>' +
           '<div><h4>Menu</h4><ul>' +
             '<li><a href="' + HOME + '#about">About</a></li><li><a href="' + HOME + '#team">Our Team</a></li>' +
-            '<li><a href="' + HOME + '#services">Services</a></li><li><a href="' + HOME + '#reviews">Reviews</a></li><li><a href="' + HOME + '#contact">Contact Us</a></li></ul></div>' +
+            '<li><a href="' + HOME + '#services">Services</a></li><li><a href="' + HOME + '#reviews">Reviews</a></li><li><a href="' + HOME + '#faq">FAQs</a></li><li><a href="' + HOME + '#contact">Contact Us</a></li></ul></div>' +
           '<div><h4>Follow us</h4><ul>' +
-            '<li><a class="ig" ' + ext(LINKS.instagram) + '>' + I.ig + 'Instagram</a></li>' +
-            '<li><a ' + ext(LINKS.whatsappCommunity) + '>WhatsApp community</a></li></ul></div>' +
+            '<li><a class="ig" ' + ext(LINKS.instagram) + '>' + I.ig + 'Instagram</a></li></ul></div>' +
           '<div><h4>Opening hours</h4>' + hoursFoot + '</div>' +
         '</div>' +
         '<div class="foot-bot"><span>&copy; ' + new Date().getFullYear() + ' ' + esc(CLINIC.name) + '.</span><span>' + esc(CLINIC.addressCity) + '</span></div>' +
@@ -121,19 +120,9 @@
   if (headerSlot) headerSlot.outerHTML = header;
   if (footerSlot) footerSlot.outerHTML = footer;
 
-  // WhatsApp CTAs: filled from LINKS so the URL is set in one place
+  // WhatsApp CTAs removed from site; keep no-op if any remain
   document.querySelectorAll('a[data-wa]').forEach(function (a) {
-    if (LINKS.whatsappCommunity) {
-      a.href = LINKS.whatsappCommunity;
-      a.target = '_blank';
-      a.rel = 'noopener';
-      a.removeAttribute('data-unset');
-      a.removeAttribute('title');
-    } else {
-      a.href = '#';
-      a.setAttribute('data-unset', '1');
-      a.title = 'Link not set yet';
-    }
+    a.style.display = 'none';
   });
 
   /* ---------- structured data ---------- */

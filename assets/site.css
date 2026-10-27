@@ -194,6 +194,7 @@ dialog#lb button{position:absolute;top:-6px;right:-6px;width:40px;height:40px;bo
 .cta-band h2{color:#fff;font-size:clamp(1.9rem,4vw,2.7rem)}
 .cta-band p{color:#D5DAEA;max-width:560px;margin:0 auto 30px}
 .cta-band .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.cta-band .actions .btn{justify-content:center}
 .cta-band .contour{color:#fff;opacity:.08}
 
 /* related services */
@@ -224,6 +225,7 @@ dialog#lb button{position:absolute;top:-6px;right:-6px;width:40px;height:40px;bo
   .container{padding:0 20px}
   .svc-hero{padding:32px 0 64px}
   .svc-hero .actions .btn{width:100%}
+  .cta-band .actions .btn{width:100%}
   .spec-card{grid-template-columns:1fr;text-align:center}
   .spec-card .photo{max-width:240px;margin:0 auto}
   .chips{justify-content:center}

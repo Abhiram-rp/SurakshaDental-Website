@@ -161,9 +161,9 @@ const SITE_CONFIG = {
     buttonLabel: "Read all reviews on Google",
     /* Paste REAL Google reviews only, word for word, with the reviewer's name. */
     items: [
-      { rating: 5, text: "[Paste a real Google review here, exactly as the patient wrote it.]", name: "[Reviewer name]", treatment: "[Treatment]" },
-      { rating: 5, text: "[Paste a real Google review here, exactly as the patient wrote it.]", name: "[Reviewer name]", treatment: "[Treatment]" },
-      { rating: 5, text: "[Paste a real Google review here, exactly as the patient wrote it.]", name: "[Reviewer name]", treatment: "[Treatment]" }
+      { rating: 5, text: "Doctor's approach and experience, Cleanliness, staff and we'll maintained clinic", name: "Goated"},
+      { rating: 5, text: "Best doctors and orthopedics affordable consultancy highly recommended", name: "SreeRaama 7676"},
+      { rating: 5, text: "super clinic", name: "Ravi Rajan"}
     ]
   },
 
@@ -567,7 +567,6 @@ footer.site .container{position:relative;z-index:2}
       <p class="intro h-in" style="--d:2">${esc(C.hero.intro)}</p>
       <div class="actions h-in" style="--d:3">
         <a class="btn btn-primary" href="${tel}">${I.phone}Call now</a>
-        <a class="btn btn-outline" ${ext(C.links.whatsappCommunity)}>${I.wa}Join our WhatsApp community</a>
       </div>
       <a class="trust h-in" style="--d:4" href="#reviews">${stars(5)}<span>${T(C.reviews.rating)} on Google &middot; ${T(C.reviews.count)} reviews</span></a>
     </div>
@@ -701,17 +700,7 @@ footer.site .container{position:relative;z-index:2}
   </section>`;
 
   /* ---------- community ---------- */
-  const community = `
-  <section class="community" id="community">
-    ${contour()}
-    <div class="container">
-      <div class="reveal">
-        <h2>${esc(C.community.title)}</h2>
-        <p>${esc(C.community.text)}</p>
-        <a class="btn btn-light" ${ext(C.links.whatsappCommunity)}>${I.wa}${esc(C.community.buttonLabel)}</a>
-      </div>
-    </div>
-  </section>`;
+  const community = ``;
 
   /* ---------- faq ---------- */
   const faq = `
@@ -777,15 +766,14 @@ footer.site .container{position:relative;z-index:2}
           <li><a href="#about">About</a></li><li><a href="#team">Our Team</a></li>
           <li><a href="#services">Services</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQs</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
         <div><h4>Follow us</h4><ul>
-          <li><a class="ig" ${ext(C.links.instagram)}>${I.ig}Instagram</a></li>
-          <li><a ${ext(C.links.whatsappCommunity)}>WhatsApp community</a></li></ul></div>
+          <li><a class="ig" ${ext(C.links.instagram)}>${I.ig}Instagram</a></li></ul></div>
         <div><h4>Opening hours</h4>${hoursFoot}</div>
       </div>
       <div class="foot-bot"><span>&copy; ${new Date().getFullYear()} ${esc(C.clinic.name)}.</span><span>${esc(C.clinic.addressCity)}</span></div>
     </div>
   </footer>`;
 
-  document.getElementById('app').innerHTML = header + `<main id="main">` + hero + about + services + team + why + reviews + gallery + community + faq + contact + `</main>` + footer;
+  document.getElementById('app').innerHTML = header + `<main id="main">` + hero + about + services + team + why + reviews + gallery + faq + contact + `</main>` + footer;
 
   /* ---------- structured data for search engines ---------- */
   try{
